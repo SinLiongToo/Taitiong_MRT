@@ -474,7 +474,7 @@ async function fetchAudioBuffer(id, ctx) {
     if (audioBufferCache.has(cleanId)) {
         return audioBufferCache.get(cleanId);
     }
-    const cdnUrl = `https://chhoetaigi.github.io/KipSutianDataMirror/public/20260503-2330/imtong/sutiau/${cleanId}.mp3`;
+    const cdnUrl = `https://chhoetaigi.github.io/KipSutianDataMirror/public/20261019-0109/imtong/sutiau/${cleanId}.mp3`;
     const res = await fetch(cdnUrl);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const arrayBuffer = await res.arrayBuffer();
@@ -617,7 +617,7 @@ async function playAudioQueue(audioIds, fallbackText) {
         if (index >= cleanIds.length) return;
         
         const id = cleanIds[index].trim();
-        const cdnUrl = `https://chhoetaigi.github.io/KipSutianDataMirror/public/20260503-2330/imtong/sutiau/${id}.mp3`;
+        const cdnUrl = `https://chhoetaigi.github.io/KipSutianDataMirror/public/20261019-0109/imtong/sutiau/${id}.mp3`;
         
         const audio = new Audio(cdnUrl);
         activeQueueAudio = audio;
@@ -625,7 +625,7 @@ async function playAudioQueue(audioIds, fallbackText) {
         
         // Preload next audio in queue to reduce lag
         if (index + 1 < cleanIds.length) {
-            const nextUrl = `https://chhoetaigi.github.io/KipSutianDataMirror/public/20260503-2330/imtong/sutiau/${cleanIds[index + 1].trim()}.mp3`;
+            const nextUrl = `https://chhoetaigi.github.io/KipSutianDataMirror/public/20261019-0109/imtong/sutiau/${cleanIds[index + 1].trim()}.mp3`;
             const preAudio = new Audio(nextUrl);
             preAudio.preload = "auto";
         }
